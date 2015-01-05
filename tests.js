@@ -16,3 +16,26 @@ Tinytest.add('Multiple access test', function(test) {
   test.equal(Namespace('testing').test1, 'passed');
   test.equal(Namespace('testing').test2, 'passed');
 });
+
+Tinytest.add('Client only test', function(test) {
+  Namespace('clientOnly', 'client', {
+    test: true
+  });
+
+  if (Meteor.isClient)
+    test.equal(clientOnly.test, true);
+  else
+    test.isUndefined(GLOBAL['clientOnly']);
+});
+
+
+Tinytest.add('Server only test', function(test) {
+  Namespace('serverOnly', 'server', {
+    test: true
+  });
+
+  if (Meteor.isServer)
+    test.equal(serverOnly.test, true);
+  else
+    test.isUndefined(window['serverOnly']);
+});

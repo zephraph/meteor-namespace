@@ -1,4 +1,13 @@
-Namespace = function(scope, definition) {
+Namespace = function(scope, location, definition) {
+  if (typeof location !== 'string')
+    definition = location
+  else
+    if (location === 'client' && !Meteor.isClient)
+      return;
+    else if(location === 'server' && !Meteor.isServer)
+      return;
+      
+
   var item, root;
   root = typeof GLOBAL !== "undefined" ? GLOBAL : window;
   scope = scope.split('.');
