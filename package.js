@@ -9,6 +9,7 @@ Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.0');
   api.use('underscore');
   api.addFiles('namespace.js');
+  api.addFiles('meteor-functions.js');
   api.export('Namespace');
 });
 

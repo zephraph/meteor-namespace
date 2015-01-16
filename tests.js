@@ -18,7 +18,7 @@ Tinytest.add('Multiple access test', function(test) {
 });
 
 Tinytest.add('Client only test', function(test) {
-  Namespace('clientOnly', 'client', {
+  Namespace.client('clientOnly', {
     test: true
   });
 
@@ -30,7 +30,7 @@ Tinytest.add('Client only test', function(test) {
 
 
 Tinytest.add('Server only test', function(test) {
-  Namespace('serverOnly', 'server', {
+  Namespace.server('serverOnly', {
     test: true
   });
 

@@ -5,7 +5,24 @@ A simple javascript namespacing utility that allows the easy creation of **globa
 This package functions by creating the namespace and attaching it to ```GLOBAL``` if it's on the server
 or ```window``` if it's on the client. 
 
+### Installation
+
+Node
+```
+npm install meteor-namespace
+```
+
+Meteor
+```
+meteor add zephraph:meteor-namespace
+```
+
 ### Usage
+
+To use this with node add a require like normal:
+```js
+var Namespace = require('meteor-namespace');
+```
 
 Calling the Namespace function creates a global namespace and returns the namespace to be edited
 ```js
@@ -29,9 +46,11 @@ Namespace('my.app.namespace', {
 console.log(my.app.namespace.test3); // Prints out 'goodbye!'
 ```
 
-A namespace can be limited to the client or server by specifying the location as the second argument
+## Meteor Only
+
+A namespace can be limited to the client or server by calling ```Namespace.server``` or ```Namespace.client```
 ```js
-Namespace('my.app.namespace', 'server', function() {
+Namespace.server('my.app.namespace', function() {
   this.serverVal = my.app.do.secret.thing();
 });
 ```

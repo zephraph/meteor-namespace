@@ -1,23 +1,27 @@
-Namespace = function(scope, location, definition) {
-  if (typeof location !== 'string')
-    definition = location
-  else
-    if (location === 'client' && !Meteor.isClient)
-      return;
-    else if(location === 'server' && !Meteor.isServer)
-      return;
-      
+if(typeof Meteor === 'undefined')
+  modules.export = namespace;
+else
+  Namespace = namespace;
 
+function namespace(scope, definition) {
   var item, root;
   root = typeof GLOBAL !== "undefined" ? GLOBAL : window;
-  scope = scope.split('.');
-  for (var i = 0; i < scope.length; ++i) {
-    item = scope[i];
-    if (root[item] == null) {
-      root[item] = {};
+
+  // Traverse scope and build an object tree as needed
+  if( typeof scope === 'string' ) {
+    scope = scope.split('.');
+    for (var i = 0; i < scope.length; ++i) {
+      item = scope[i];
+      if (root[item] == null) {
+        root[item] = {};
+      }
+      root = root[item];
     }
-    root = root[item];
-  }
+  } 
+  
+  else
+    root = scope
+      
   switch (typeof definition) {
     case 'function':
       definition.apply(root);
