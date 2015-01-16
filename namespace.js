@@ -1,5 +1,7 @@
-if(typeof Meteor === 'undefined')
-  modules.export = namespace;
+if(typeof Meteor === 'undefined') {
+  _ = require('underscore');
+  module.exports = namespace;
+}
 else
   Namespace = namespace;
 

@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/zephraph/meteor-namespace/issues"
   },
-  "homepage": "https://github.com/zephraph/meteor-namespace"
+  "homepage": "https://github.com/zephraph/meteor-namespace",
+  "devDependencies": {
+    "chai": "^1.10.0"
+  },
+  "dependencies": {
+    "underscore": "^1.7.0"
+  }
 }
