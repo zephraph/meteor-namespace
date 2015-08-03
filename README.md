@@ -3,7 +3,7 @@ meteor-namespace
 
 A simple javascript namespacing utility that allows the easy creation of **global** namespaces. 
 This package functions by creating the namespace and attaching it to ```GLOBAL``` if it's on the server
-or ```window``` if it's on the client. 
+or ```window``` if it's on the client. Now on NPM!
 
 ### Installation
 
