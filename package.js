@@ -1,7 +1,7 @@
 Package.describe({
   name: 'zephraph:namespace',
   summary: 'A simple javascript namespacing utility',
-  version: '1.2.0',
+  version: '1.2.1',
   git: 'https://github.com/zephraph/meteor-namespace.git'
 });
 
