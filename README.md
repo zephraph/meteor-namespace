@@ -14,7 +14,7 @@ npm install meteor-namespace
 
 Meteor
 ```
-meteor add zephraph:meteor-namespace
+meteor add zephraph:namespace
 ```
 
 ### Usage
